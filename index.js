@@ -1,3 +1,4 @@
+
 function initMap() {
     const map = new google.maps.Map(document.getElementById("map"), {
       center: { lat: 40.749933, lng: -73.98633 },
@@ -113,15 +114,22 @@ function initMap() {
       input.value = "";
     });
 
-    let test1 = []
+    let test1 = [];
+    let k = 0;
     marker.addListener("click", () => {
 
-        test1.push(marker.position.lat());
-        test1.push(marker.position.lng());
-    //    test1.push(marker.getPosition());
-        console.log(test1)
-
- 
+        test1.push(marker.getPosition());
+        const qwe = `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword=cruise&location=${test1[k].lat()}%2C${test1[k].lng()}&radius=1500&type=restaurant&key=`;
+        fetch(qwe).then((response) => response.json())
+          .then((data) => {
+            for( j=0; j < 10; j++){
+              new google.maps.Marker({
+                position: data.results[j].geometry.location,
+                map
+              })}
+            
+          } );
+          k = k+1;
     })
 
     const addbutton = document.getElementById("add");
@@ -139,7 +147,14 @@ function initMap() {
     }
 
 
+
+
+
+
+
   }
+
+  
 
 
 window.initMap = initMap;
@@ -161,4 +176,15 @@ window.initMap = initMap;
             title: "Hello World!"
         });
         console.log(a);
+
+
+                for( j=0; j < 4; j++){
+          new google.maps.Marker({
+            position: data.results[j].geometry,
+            map
+          })}
+
+
+
+
 */
