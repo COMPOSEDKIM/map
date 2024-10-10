@@ -1,0 +1,118 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Advanced Marker Accessibility</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+  </head>
+  <body>
+    <div class="pac-card" id="pac-card">
+      <div>
+        <div id="title">Place Search</div>
+        <div
+          id="type-selector"
+          class="pac-controls"
+          style="display: none"
+        ></div>
+        <br />
+        <div id="strict-bounds-selector" class="pac-controls">
+          <input
+            type="checkbox"
+            id="use-location-bias"
+            value=""
+            checked
+            style="display: none"
+          />
+        </div>
+      </div>
+      <div id="pac-container">
+        <input id="pac-input" type="text" placeholder="Enter a location" />
+        <button id="search-button">Search</button>
+      </div>
+    </div>
+
+    <div id="container">
+      <div id="Information">
+        <h2>Information</h2>
+        <button id="add">add Marker</button>
+        <div id="imageContainer">
+          <img id="0" src="" />
+        </div>
+        <button id="prevBtn" class="hidden">◀ 이전</button>
+        <button id="nextBtn" class="hidden">다음 ▶</button>
+
+        <div class="review-info hidden" id="dsee">
+          <p class="restaurant bold-text" id="1"></p>
+          <p class="reviewcontent" id="2"></p>
+          <p class="reviewcontent" id="3"></p>
+          <p class="reviewcontent" id="4"></p>
+          <p class="reviewcontent" id="5"></p>
+          <p class="reviewcontent" id="6"></p>
+          <p class="reviewcontent" id="7"></p>
+          <p class="reviewcontent" id="8"></p>
+        </div>
+      </div>
+
+      <div id="map"></div>
+      <div id="sidebar" class="moreplan">
+        <select id="selectBox" style="width: 100%">
+          <option value="D1" style="width: auto">day1</option>
+        </select>
+        <div class="checkbox-container">
+          <label
+            ><input type="checkbox" id="Direction" name="option" />운전
+            경로</label
+          >
+        </div>
+        <div class="checkbox-container">
+          <label
+            ><input type="checkbox" id="Walk" name="option" />도보 경로</label
+          >
+        </div>
+        <button id="addplan" style="display: inline">일정 추가</button>
+        <ul id="D1" value="1"></ul>
+      </div>
+      <div id="sidebar">
+        <h2>Recommend</h2>
+        <select id="sortR" style="width: auto">
+          <option value="default">기본 순</option>
+          <option value="num">별점 높은 순</option>
+          <option value="many">리뷰 많은 순</option>
+        </select>
+        <ul id="places"></ul>
+      </div>
+      <div id="infowindow-content">
+        <span id="place-name" class="title"></span><br />
+        <span id="place-address"></span>
+      </div>
+    </div>
+
+    <div id="rightClickMenu">
+      <div class="item" number="1">Near Restaurant</div>
+      <div class="item" number="2">Near Park</div>
+      <div class="item" number="3">Reset</div>
+      <div class="item" number="4">Delete</div>
+    </div>
+
+    <input
+      type="button"
+      value="night"
+      class="dayNightButton"
+      style="display: none"
+    />
+    <input
+      type="button"
+      value="false"
+      class="resetbutton"
+      style="display: none"
+    />
+
+    <div id="result"></div>
+
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAXaYwwO82iGqPtEN2-PJi5tKFMwN5VFG4&callback=initMap&libraries=places&v=weekly"
+      defer
+    ></script>
+    <script src="./index.js"></script>
+  </body>
+</html>

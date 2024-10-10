@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>여행 스케줄</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Responsive navbar-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container px-5">
+                <a class="navbar-brand" href="#!">MET</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                       
+                        <li class="nav-item"><a class="nav-link" href="#!">리뷰게시판</a></li>
+                        <li class="nav-item"><a class="nav-link" href="chatbot.html" onclick="window.open(this.href, '_blank', 'width=500, height=800'); return false;" >챗봇</a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Page Content-->
+        <div class="container px-4 px-lg-5">
+            <!-- Heading Row-->
+            <div class="row gx-4 gx-lg-5 align-items-center my-5">
+                <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="pic_1.jpg" alt="..." /></div>
+                <div class="col-lg-5">
+                    <h1 class="font-weight-light">당신의 여행을 <br>계획하세요</h1>
+                    <p>당신이 가고싶은 여행지를 추천해 드립니다.</p>
+                    <a class="btn btn-primary" href="map.html">START</a>
+                </div>
+            </div>
+            <!-- Call to Action-->
+            <div class="card text-white bg-secondary my-5 py-4 text-center">
+                <div class="card-body"><p class="text-white m-0"></p></div>
+            </div>
+            <!-- Content Row-->
+            <div class="row gx-4 gx-lg-5">
+                <div class="col-md-4 mb-5">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h2 class="card-title">항공권</h2>
+                            <p class="card-text">원하시는 장소와 날짜를 입력하시면 항공편을 최저가 순으로 찾아드립니다. </p>
+                        </div>
+                        <div class="card-footer"><a id="flightButton" class="btn btn-primary btn-sm" href="#!">항공권 찾기</a></div>
+
+                        <div id="flightSelection" style="display: none">
+                            <div>
+                                <h2 class="accommodation">항공권 선택</h2>
+                            </div>
+                            <form method="POST" action = /fetch target="_blank">
+                                <div class="form__fieldset">
+                                    <label for="destinationInput" , class="form__label">여행지:</label>
+                                    <input
+                                            type="text"
+                                            id="destinationInput"
+                                            name="destinationInput"
+                                            ,
+                                            class="form__input"
+                                    />
+                                </div>
+                                <div class="form__fieldset">
+                                    <label for="departureDate" , class="form__label">가는날</label>
+                                    <input
+                                            type="date"
+                                            id="departureDate"
+                                            name="departureDate"
+                                            ,
+                                            class="form__input"
+                                    />
+                                </div>
+                                <div class="form__fieldset">
+                                    <label for="returnDate" , class="form__label">오는날</label>
+                                    <input
+                                            type="date"
+                                            id="returnDate"
+                                            name="returnDate"
+                                            ,
+                                            class="form__input"
+                                    />
+                                </div>
+                                <div class="form__fieldset">
+                                    <input class="form_submit form__input" type="submit" />
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-5">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h2 class="card-title">숙소</h2>
+                            <p class="card-text">원하는 위치와 날짜를 입력하시면 숙소를 찾아드립니다. </p>
+                        </div>
+                        <div class="card-footer"><a id="flightButton" class="btn btn-primary btn-sm" href="#!" onClick="displayAccommodationSelection()">호텔 찾기</a></div>
+
+                        <div id="accommodationSelection" style="display: none">
+                            <div>
+                                <h2 class="accommodation">숙소 선택</h2>
+                            </div>
+                            <form method="POST" action="/fetch" target="_blank">
+                                <div class="form__fieldset">
+                                    <label for="destinationInput" , class="form__label">숙소 위치:</label>
+                                    <input
+                                            type="text"
+                                            id="destinationInput"
+                                            name="destinationInput"
+                                            ,
+                                            class="form__input"
+                                    />
+                                </div>
+                                <div class="form__fieldset">
+                                    <label for="departureDate" , class="form__label">체크인 날짜</label>
+                                    <input
+                                            type="date"
+                                            id="departureDate"
+                                            name="departureDate"
+                                            ,
+                                            class="form__input"
+                                    />
+                                </div>
+                                <div class="form__fieldset">
+                                    <label for="returnDate" , class="form__label">체크아웃 날짜</label>
+                                    <input
+                                            type="date"
+                                            id="returnDate"
+                                            name="returnDate"
+                                            ,
+                                            class="form__input"
+                                    />
+                                </div>
+                                <div class="form__fieldset">
+                                    <input class="form_submit form__input" type="submit" />
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+        <div class="contentst1"> </div>
+        <ul class="icons">
+            <li>
+                <div class="icon_img">
+                    <img src="image/newyork.png" width="450" height="200">
+                </div>
+                <div class="contents1_bold">미국 뉴욕 </div>
+                <div class="contexts1">뉴욕 맨하탄에서 빅애플을 찾아라!
+                </div>    
+                <a class="more" href="newyork.html">자세히 보기</a>
+            </li>
+            <li>
+                <div class="icon_img">
+                    <img src="image/bali.png" width="450" height="200">
+                </div>
+                <div class="contents1_bold">인도네시아 발리</div>
+                <div class="contexts1">푸른바닷속 니모를 찾아서!</div>    
+                <a class="more" href="bali.html">자세히 보기</a>
+            </li>
+        
+        
+        
+            <li>
+                <div class="icon_img">
+                    <img src="image/thailand.png"  width="450" height="200">
+                </div>
+                <div class="contents1_bold">태국 푸켓 </div>
+                <div class="contexts1">힐링의 시간을 찾아 태국으로!</div>    
+                <a class="more" href="thailand.html">자세히 보기</a>
+            </li>
+            <li>
+                <div class="icon_img">
+                    <img src="image/france.png"  width="450" height="200">
+                </div>
+                <div class="contents1_bold">프랑스 파리 </div>
+                <div class="contexts1">오성급 호텔 쉐프에게 배우는 프랑스 디저트 요리!</div>    
+                <a class="more" href="france.html">자세히 보기</a>
+            </li>
+    </ul>
+    </div>
+
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js">
+        </script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <script>
+            function displayAccommodationSelection() {
+                document.getElementById('accommodationSelection').style.display = 'block';
+            }
+
+            document.addEventListener("DOMContentLoaded", function () {
+            const flightButton = document.getElementById("flightButton");
+            const flightSelection = document.getElementById("flightSelection");
+            const rowToAdjust = document.querySelector(".row.gx-4.gx-lg-5");
+            const departureDateInput = document.getElementById("departureDate");
+            const returnDateInput = document.getElementById("returnDate");
+
+
+            flightButton.addEventListener("click", function (event) {
+                event.preventDefault(); // 앵커 태그의 기본 동작 방지
+                flightSelection.style.display = "block";
+
+                // flightSelection이 위로 올라오면서 자연스럽게 아래 요소들을 밀어냄
+                const cardHeight = flightSelection.clientHeight;
+                rowToAdjust.style.marginTop = `${cardHeight}px`;
+
+                // 부드러운 이동을 위해 클래스를 추가하고 0.5초 후에 제거
+                rowToAdjust.classList.add("adjusted", "margin-top");
+                setTimeout(() => {
+                    rowToAdjust.classList.remove("adjusted");
+                }, 500);
+            });
+            // 출발일 선택 이벤트
+            departureDateInput.addEventListener("change", () => {
+                const selectedDepartureDate = departureDateInput.value;
+                console.log("선택한 출발일:", selectedDepartureDate);
+            });
+
+            // 도착일 선택 이벤트
+            returnDateInput.addEventListener("change", () => {
+                const selectedReturnDate = returnDateInput.value;
+                console.log("선택한 도착일:", selectedReturnDate);
+            });
+
+
+        });
+        </script>
+    </body>
+</html>
